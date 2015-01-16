@@ -1,0 +1,36 @@
+<ion-modal-view title="Nuevo">
+    <ion-header-bar>
+      <h1 class="title positive">Nuevo</h1>
+      <div class="buttons">
+        <button class="button button-stable" ng-click="nuevo.hide()">Cancelar</button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+      <form ng-submit="nuevo()">
+        <div class="list">
+          <label class="item item-input item-select">
+          <div class="input-label">
+            Nombre
+          </div>
+          <select ng-model="nuevo.nombre">
+            <option></option>
+            <option ng-repeat="persona in personas">{{persona.nombre}}</option>
+          </select>
+        </label>
+      </div>
+        <label class="item item-input">
+          <span class="input-label">Fecha</span>
+          <input type="date" ng-model="nuevo.fecha" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Descripcion</span>
+          <input type="text" ng-model="nuevo.descripcion">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Monto</span>
+          <input type="number" ng-model="nuevo.monto">
+        </label>
+        <button class="button button-positive" ng-click="crear(nuevo.descripcion, nuevo.fecha, nuevo.monto, nuevo.nombre)">Crear</button>
+      </form>
+    </ion-content>
+  </ion-modal-view>

@@ -1,0 +1,39 @@
+<ion-modal-view title="Editar">
+    <ion-header-bar>
+      <h1 class="title positive">Editar</h1>
+      <div class="buttons">
+        <button class="button button-stable" ng-click="editar.hide()">Cancelar</button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+      <form ng-submit="">
+        <span ng-show="false" ng-model="editar.id"></span>
+        <div class="list">
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Nombre
+            </div>
+            <select ng-model="editar.nombre">
+              <option ng-repeat="persona in personas">{{persona.nombre}}</option>
+            </select>
+          </label>
+        </div>
+        <span ng-show="false" ng-model="editar.nombreAux"></span>
+        <label class="item item-input">
+          <span class="input-label">Fecha</span>
+          <input type="date" ng-model="editar.fecha" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Descripcion</span>
+          <input type="text" ng-model="editar.descripcion">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Monto</span>
+          <input type="number" ng-model="editar.monto">
+        </label>
+        <span ng-show="false" ng-model="editar.montoAux"></span>
+      </form>
+      <button class="button button-positive" ng-click="guardar(editar.id, editar.descripcion, editar.fecha, editar.monto, editar.nombre, editar.montoAux, editar.nombreAux)">Guardar</button>
+      <button class="button button-assertive" ng-click="eliminar(editar.id, editar.aux, editar.nombre)">Eliminar</button>
+    </ion-content>
+  </ion-modal-view>

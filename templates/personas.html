@@ -1,0 +1,33 @@
+<ion-view title="Personas">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-close-circled" ng-click="sDelete()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <form ng-submit='nuevaPersona(persona.nombre)' class="agregar">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-plus-round placeholder-icon"></i>
+          <input type="text" placeholder="Nueva Persona" ng-model='persona.nombre'>
+        </label>
+      </div>
+    </form>
+    <ion-list show-delete="showDelete">
+      <ion-item ng-repeat="persona in personas track by $index">
+        <div class="row">
+          <div class="col col-75">
+            <h3 class="fix2">{{persona.nombre}}</h3>
+          </div>
+          <div class="col col-25">
+            <h4>Total: $ {{persona.total}}</h4>
+          </div> 
+        </div>
+        
+        
+        <ion-delete-button class="ion-minus-circled" ng-click="deletePersona($index)"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
